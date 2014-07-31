@@ -57,11 +57,12 @@ describe GschoolEnumerable do
   describe "#g_select!" do
 
     it "acts like select!" do
-      items = [1, 2, 3]
+      items = [1, 2, 3, 4, 5, 6]
 
-      items.g_select! { |value| value % 2 == 0 }
+      result = items.g_select! { |value| value % 5 == 0 }
 
-      expect(items).to eq([2])
+      expect(result).to eq([5])
+      expect(items).to eq([5])
     end
   end
 end

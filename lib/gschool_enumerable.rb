@@ -38,7 +38,11 @@ module GschoolEnumerable
   end
 
   def g_select!
-    self.each {|item| self.delete(item) unless yield item }
+    temp = self.dup
+    for i in temp
+      self.delete(i) unless yield i
+    end
+    self
   end
 
 end
